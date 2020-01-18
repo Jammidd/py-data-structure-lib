@@ -2,30 +2,39 @@ class Node(object):
     def __init__(self, value=None):
         self.right = None
         self.left = None
-        self.value = None
+        self.value = value
 
-    def add_leaf(self):
-        pass
+    def add_leaf(self, value=None):
+        print(value, self.value)
+        if value and value > self.value:
+            if self.right:
+                return self.right.add_leaf(value)
+            else:
+                self.right = Node(value)
+        else:
+            if self.left:
+                return self.left.add_leaf(value)
+            else:
+                self.left = Node(value)
 
     def print(self):
-        return print(self.value, '->', 'left:', self.left.print() if self.left else None, 'right:', self.right.print() if self.right else None) 
+        print(self.value)
 
+        return '{}\t{}'.format(self.left.print() if self.left else None, self.right.print() if self.right else None)
 
 class BinarySearchTree(object):
     def __init__(self):
         self.root = None
-        self.nodes = []
-        self.num_nodes = 0
-
-    def get_root_node(self):
-        return self.root
 
     def add_node(self, value=None):
         if not self.root:
-            return self.nodes.append(Node(value))
+            self.root = Node(value)
+            return
         
-        print('Adding node to right or left')
+        return self.root.add_leaf(value)
 
     def print(self):
-        for n in self.nodes:
-            n.print()
+        if self.root:
+            self.root.print()
+        else:
+            print(None)
