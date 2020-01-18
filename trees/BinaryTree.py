@@ -5,7 +5,6 @@ class Node(object):
         self.value = value
 
     def add_leaf(self, value=None):
-        print(value, self.value)
         if value and value > self.value:
             if self.right:
                 return self.right.add_leaf(value)
@@ -17,12 +16,15 @@ class Node(object):
             else:
                 self.left = Node(value)
 
+    def is_leaf(self):
+        return not self.right and not self.left
+
     def print(self):
         print(self.value)
 
         return '{}\t{}'.format(self.left.print() if self.left else None, self.right.print() if self.right else None)
 
-class BinarySearchTree(object):
+class BinaryTree(object):
     def __init__(self):
         self.root = None
 

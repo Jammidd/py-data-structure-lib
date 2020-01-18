@@ -1,7 +1,7 @@
-from bst import BinarySearchTree
+from trees import BinaryTree
 
 if __name__ == '__main__':
-    bst = BinarySearchTree()
+    bst = BinaryTree()
 
     bst.add_node('Major')
     bst.print()
