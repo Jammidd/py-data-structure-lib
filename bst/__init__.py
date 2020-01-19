@@ -1,0 +1,1 @@
+from bst.classes import BinarySearchTree
