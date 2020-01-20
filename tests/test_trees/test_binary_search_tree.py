@@ -4,7 +4,7 @@ from trees import BinarySearchTree
 
 class BinaryTreeTests(unittest.TestCase):
     def setUp(self):
-        self.tree = BinaryTree()
+        self.tree = BinarySearchTree()
 
     def test_create_tree(self):
         tree = BinarySearchTree()
