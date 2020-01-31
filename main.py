@@ -1,12 +1,21 @@
-from trees import BinaryTree
+from trees import BinarySearchTree
 
 if __name__ == '__main__':
-    bst = BinaryTree()
+    bst = BinarySearchTree()
 
-    bst.add_node('Major')
-    bst.print()
+    bst.insert(5)
+    bst.insert(3)
+    bst.insert(4)
+    bst.insert(6)
+    bst.insert(7)
+    bst.insert(9)
+    bst.insert(10)
+    bst.insert(8)
 
-    bst.add_node('Primary')
-    bst.add_node('Begin')
-    bst.add_node('Cool')
-    bst.print()
+    result = bst.search(4)
+    print(result)
+    bst.delete(4)
+    result = bst.search(4)
+    print(result)
+    pass
+    # bst.print()
